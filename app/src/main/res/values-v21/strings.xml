@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="box">Удалить</string>
+    <string name="message_text">Enter city</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+</resources>
