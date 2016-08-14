@@ -1,18 +1,17 @@
 package com.gramis.gdgtestapp;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         dialogFragment = new DialogFragment();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +53,19 @@ public class MainActivity extends AppCompatActivity {
         if (lvMain != null) {
             lvMain.setAdapter(cityAdapter);
         }
+
+        assert lvMain != null;
+        lvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(LOG_TAG, "itemClick: position = " + position + ", id = "
+                        + id);
+
+                Intent intent = new Intent(view.getContext(), WeatherActivity.class);
+                intent.putExtra("city", cities.get((int) id).getName());
+                startActivity(intent);
+            }
+        });
     }
 
     // генерируем данные для адаптера
