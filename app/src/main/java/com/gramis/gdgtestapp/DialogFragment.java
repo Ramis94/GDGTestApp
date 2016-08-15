@@ -22,7 +22,6 @@ public class DialogFragment extends android.app.DialogFragment implements View.O
 
     private static final String LOG_TAG = "myLogs";
     EditText editText;
-    String s;
     DBHelper dbHelper;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

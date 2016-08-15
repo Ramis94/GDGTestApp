@@ -81,13 +81,15 @@ public class MainActivity extends AppCompatActivity {
             // определяем номера столбцов по имени в выборке
             int idColIndex = c.getColumnIndex("id");
             int cityColIndex = c.getColumnIndex("city");
+            int temperatureColIndex = c.getColumnIndex("temperature");
 
             do {
                 // получаем значения по номерам столбцов и пишем все в лог
-                cities.add(new City(c.getInt(idColIndex), c.getString(cityColIndex), R.drawable.images, false));
+                cities.add(new City(c.getInt(idColIndex), c.getString(cityColIndex), c.getString(temperatureColIndex), false));
                 Log.d(LOG_TAG,
                         "ID = " + c.getInt(idColIndex) +
-                                ", name = " + c.getString(cityColIndex));
+                                ", name = " + c.getString(cityColIndex) +
+                                ", temperature = " + c.getString(temperatureColIndex));
                 // переход на следующую строку
                 // а если следующей нет (текущая - последняя), то false - выходим из цикла
             } while (c.moveToNext());

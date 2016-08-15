@@ -18,8 +18,10 @@ public class WeatherHttpClient {
         HttpURLConnection con = null ;
         InputStream is = null;
 
+        String loc = location.replaceAll(" ", "%20");
+
         try {
-            con = (HttpURLConnection) ( new URL(BASE_URL + location + "&APPID=065f0568934a4b3c2fea3de89b7ba68b")).openConnection();
+            con = (HttpURLConnection) ( new URL(BASE_URL + loc + "&APPID=065f0568934a4b3c2fea3de89b7ba68b")).openConnection();
             con.setRequestMethod("GET");
             con.setDoInput(true);
             con.setDoOutput(true);

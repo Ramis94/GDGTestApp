@@ -57,10 +57,9 @@ public class CityAdapter extends BaseAdapter {
 
         City city = getCity(position);
 
-        // заполняем View в пункте списка данными из товаров: наименование, цена
-        // и картинка
+        // заполняем View
         ((TextView) view.findViewById(R.id.tvCity)).setText(city.getName());
-        ((ImageView) view.findViewById(R.id.ivImage)).setImageResource(city.getImage());
+        ((TextView) view.findViewById(R.id.tempCity)).setText(city.getTemperature());
 
         CheckBox cbBuy = (CheckBox) view.findViewById(R.id.cbBox);
         // присваиваем чекбоксу обработчик

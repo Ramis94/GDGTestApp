@@ -9,18 +9,15 @@ public class City {
 
     private String name;
 
-    private int image;
+    private String temperature;
 
     private boolean box;
 
-    public City(Integer id, String name, int image, boolean box) {
+    public City(Integer id, String name, String temperature, boolean box) {
         this.id = id;
         this.name = name;
-        this.image = image;
+        this.temperature = temperature;
         this.box = box;
-    }
-
-    public City() {
     }
 
     public Integer getId() {
@@ -39,12 +36,12 @@ public class City {
         this.name = name;
     }
 
-    public int getImage() {
-        return image;
+    public String getTemperature() {
+        return temperature;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
     public boolean isBox() {
